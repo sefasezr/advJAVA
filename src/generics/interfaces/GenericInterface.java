@@ -1,7 +1,8 @@
 package generics.interfaces;
 
-public interface GenericInterface {
+public interface GenericInterface <T> {
 
-    void print();
+    void print(T value);
+    T find();
 
 }
