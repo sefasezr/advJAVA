@@ -12,10 +12,10 @@ public class CustomerRepo implements Repo<Customer>{
         return null;
     }
 
-    //save(Customer obj){
+    //public void save(Customer obj){
     // insert into ...
     // }
 
-    //Customer find
+    //public Customer find
 
 }
