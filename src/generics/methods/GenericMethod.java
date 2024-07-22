@@ -74,6 +74,7 @@ public class GenericMethod {
 
         Arrays.stream(arr).forEach(t-> System.out.print(t+" "));
         System.out.println(obj);
+        System.out.println();
     }
 
 }
