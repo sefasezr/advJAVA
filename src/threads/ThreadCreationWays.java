@@ -41,6 +41,7 @@ public class ThreadCreationWays {
                 System.out.println("Thread 3 çalıştı");
                 System.out.println("Çalışan thread: "+Thread.currentThread().getName());
 
+                //thread2.join();
             }
         });
         thread3.start();
