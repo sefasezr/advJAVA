@@ -49,6 +49,22 @@ public class ThreadPool {
 
         service.shutdown(); //havuzu sonlandırır, aksi halde threadler havuzda beklemeye devam eder.
 
+        /*
+        Örneğin 2 thread ortak bir veri üzerinde çalışıyor buna basit şekilde int x = 0 değişkeni diyelim
+        threadlerden birisi x'i artırırken öbürü azaltıyor olsun bunu her değiştirdiklerinde ana belleğe tanımlarsa
+        problem yok ancak biz multithread ile çalıştığımız için bu threadler işlemcimizin farklı çekirdeklerinde yer alabilir
+        CPU1, CPU2 olarak. ve bu çekirdekler threadlerde yapacakları görevi yerine getirmek için ana bellekten x değişkenini almak
+        yerine x değişkenini olduğu gibi (x=0) olarak ön belleğine alabilirler böylece bu değişkene erişimi kolay olur
+        ancak bu değişkeni artırdıkları zaman veya azalttıkları zaman ana bellekte oluşturulan x değişkenine ortak olarak artırma
+        azaltma yapmak yerine iki çekirdek de kendi ön belleğindeki x değişkenine artırma azaltma yapar yani şöyle
+        artırma yapan çekirdek x'i 1 yaparken azaltma yapan çekirdek x'i -1 yapar ana bellekteki x değeri ise 0 olarak kalır bu bir risktir
+        çünkü veri tutarsızlığı olur bu sorun threadin sorunu değil sorun çekirdeğin cache yani önbellek kullanması
+        Biz ortak olan değişken değerinin cache 'e alınmadan ana bellekte kalmasını sağlamalıyız
+        Bunu engellemek için(cache alınma durumunu) volatile keywordunu kullanmalıyız volatile keywordu değişkenin cache'e alınmasını
+        engeller
+
+         */
+
 
 
     }
