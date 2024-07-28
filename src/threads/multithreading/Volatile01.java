@@ -18,7 +18,7 @@ public class Volatile01 {
 
          */
 
-    public static int flag = 0;//her çekirdek kendi ön belleğine alırsa bunun önüne geçmek için volatile keyword yazdık
+    public volatile static int flag = 0;//her çekirdek kendi ön belleğine alırsa bunun önüne geçmek için volatile keyword yazdık
     //volatile: sadece değişkenin değerinin main memory'e yazılmasını ve buradan okunmasını garanti eder
 
     public static void main(String[] args) {

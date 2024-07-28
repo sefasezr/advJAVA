@@ -5,6 +5,9 @@ izin vermemizi sağlar.
 
 Synchronized, aynı anda ortak bir kaynağa(blok,metod) sadece 1 threadin
  erişmesine izin verir.
+
+ semaphore ve synchronized yapılarının birlikte kullanılması, doğru şekilde uygulandığında
+ güçlü bir eşzamanlılık kontrolü sağlar, ancak dikkatli ve bilinçli bir şekilde uygulanmalıdır.
 */
 
 import java.util.concurrent.Semaphore;

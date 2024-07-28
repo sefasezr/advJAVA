@@ -21,6 +21,12 @@ public class Multithreading02 {
 
                 Sayac.increment();//sıralı
 
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+
                 for(int i =1;i<6;i++){
                     System.out.println("su satıldı");
                 }
@@ -38,6 +44,12 @@ public class Multithreading02 {
 
                 Sayac.increment();//sıralı
 
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+
                 for(int i =1;i<6;i++){
                     System.out.println("meşrubat satıldı");
                 }
@@ -46,7 +58,26 @@ public class Multithreading02 {
         });
         thread1.setName("Tom");
         thread2.setName("Jerry");
+
         thread1.start();
+//        try {
+//            thread1.join();
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
+        /*
+        üstte ben öylesine join koydum bilet satış ve öncesinde su satışını görmek ve her işlem bittikten sonra thread2nin
+        başladığını gözlemleyip bu sefer de bilet satım öncesi meşrubat satımını gözlemlemek için
+
+        Ancak joinsiz versiyonda da önce tom da jerry de başlayıp su ve meşrubatlarını satacaklar sonrasında senkron olarak
+        2000 adet bilet satıcaklar
+        sonrasında tekrar su ve meşrubatlarını satıp asenkron şekilde bitiricekler
+
+        Eğer ilk 1000 bileti satanın tekrar meşrubat veya su satmasını engelleyip 2000 bilet satılınca satmaya başlamasını
+        istersem kodların önüne bekleme kodu koyarız
+
+         */
+
         thread2.start();
 
     }
@@ -61,7 +92,7 @@ class Sayac {
 
     //synchronized: metoda aynı anda sadece 1 tane threadin erişmesine izin verir
 
-    public static synchronized void increment(){
+    public static void increment(){
 
         for(int i =1 ; i<1001; i++){
 
